@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Equipamentos - Almoxarifado</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">📦 Almoxarifado</a>
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="emprestimos.html">Empréstimos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="equipamentos.html">Equipamentos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="colaboradores.html">Colaboradores</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container mt-5">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Equipamentos</h2>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEquipamentos">+ Novo</button>
+            </div>
+            <hr>
+            <div class="card shadow">
+                <div class="card-body">
+                    <table class="table table-hover align-middle">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Marca</th>
+                                <th>Patrimônio</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaEquipamentos"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+         <div class="modal fade" id="modalEquipamentos">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Novo Equipamento</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formEquipamentos">
+                            <label>Nome</label>
+                            <input type="text" id="nome" class="form-control">
+                            <label class="mt-3">Marca</label>
+                            <input type="text" id="marca" class="form-control">
+                            <label class="mt-3">Patrimônio</label>
+                            <input type="text" id="patrimonio" class="form-control">
+                            <button class="btn btn-success w-100 mt-4">Salvar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../js/equipamentos.js"></script>
+    </body>
+</html>
