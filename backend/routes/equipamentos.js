@@ -15,6 +15,19 @@ router.get("/listarTodos", (req, res) => {
     })
 })
 
+router.get("/listarEspecifico/:id", (req, res) => {
+    const {id} = req.params;
+    const sql = "SELECT equipamentos where id = ? ";
+
+    connection.query(sql, (error,result) =>{
+        if(error){
+            return res.status(500).json(error);
+        };
+
+        res.status(200).json(result)
+    })
+})
+
 router.post("/criar", (req, res) =>{
     const {nome, marca, patrimonio} = req.body;
     const sql = "INSERT INTO equipamentos (nome, marca, patrimonio) VALUES (?,?,?)";
@@ -26,5 +39,31 @@ router.post("/criar", (req, res) =>{
         res.status(201).json({mensagem:"Equipamentos cadastrados com sucesso!"})
     });
 });
+
+router.put("/editar/:id", (req, res) =>{
+    const {id} = req.params;
+    const {nome, marca, patrimonio} = req.body;
+    const sql = "UPDATE equipamentos SET nome = ?, marca = ?, patrimonio = ? Where id = ?";
+
+    connection.query(sql, [nome, marca, patrimonio, id], (error) =>{
+        if(error) {
+            return res.status(500).json(error);
+        };
+        res.status(201).json({mensagem:"Equipamentos alterados com sucesso!"})
+    });
+});
+
+router.delete("/excluir/:id", (req, res) =>{
+    const {id} = req.params;
+    const sql = "DELETE FROM equipamentos Where id = ?";
+
+    connection.query(sql, [id], (error) =>{
+        if(error) {
+            return res.status(500).json(error);
+        };
+        res.status(201).json({mensagem:"Equipamentos deletado com sucesso!"})
+    }
+    )
+})
 
 module.exports = router;   
