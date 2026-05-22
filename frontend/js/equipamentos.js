@@ -20,7 +20,7 @@ async function listarEquipamentos() {
             <td>${equipamento.patrimonio}</td>
             <td>
                 <button class="btn btn-warning btn-sm">Editar</button>
-                <button onclick="excluirEquipamentos ${equipamento.id}" class="btn btn-danger btn-sm" >Excluir</button>
+                <button onclick="excluirEquipamentos(${equipamento.id})" class="btn btn-danger btn-sm" >Excluir</button>
             </td>    
         </tr>`;
         })
